@@ -23,7 +23,7 @@ public class Main extends PluginBase implements Listener {
 
     @EventHandler
     public void playerJoin(PlayerJoinEvent event) {
-        if (config.getBoolean("EnableCustomJoinMessage")) event.setJoinMessage(TextFormat.GRAY + config.getString("CustomJoinMessage").replace("{username}", event.getPlayer().getName()));
+        if (config.getBoolean("EnableCustomJoinMessage")) event.setJoinMessage(config.getString("CustomJoinMessage").replace("{username}", event.getPlayer().getName()));
 
         getServer().getScheduler().scheduleDelayedTask(this, new Runnable() {
             @Override
@@ -42,7 +42,7 @@ public class Main extends PluginBase implements Listener {
     @EventHandler
     public void playerQuit(PlayerQuitEvent event) {
         if (config.getBoolean("EnableCustomQuitMessage")) {
-            event.setQuitMessage(TextFormat.GRAY+config.getString("CustomQuitMessage").replace("{username}", event.getPlayer().getName()));
+            event.setQuitMessage(config.getString("CustomQuitMessage").replace("{username}", event.getPlayer().getName()));
         }
     }
 }

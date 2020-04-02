@@ -18,10 +18,11 @@ JoinMessage:
   - §7ワールド移動などはしふぉんでどうぞ
   - §7https://info.comorevi.net
   - §7======================
-## JoinTitle
+## JoinTitle...送信するタイトルの内容
 JoinTitle: §cC§fo§cSS§fe - §a生活§f鯖
+## JoinSubTitle...送信するタイトルのサブタイトルの内容
 JoinSubTitle: §7for MinecraftBE 1.14.x
-## CustomJoinMessage
-CustomJoinMessage: "{username}が参加しました！待ってました！！( ͡° ͜ʖ ͡°)"
-## CustomQuitMessage
-CustomQuitMessage: "{username}が退出しました。良い１日を！！"
+## CustomJoinMessage...参加メッセージのカスタマイズ({username}はユーザーの名前が入ります)
+CustomJoinMessage: "§7{username}が参加しました！待ってました！！( ͡° ͜ʖ ͡°)"
+## CustomQuitMessage...退出メッセージのカスタマイズ({username}はユーザーの名前が入ります)
+CustomQuitMessage: "§7{username}が退出しました。良い１日を！！"
