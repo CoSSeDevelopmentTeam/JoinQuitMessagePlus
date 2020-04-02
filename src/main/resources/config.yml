@@ -1,0 +1,27 @@
+## 各種機能の有効化・無効化設定
+## JoinMessage...参加時にプレイヤーにメッセージを送信
+EnableJoinMessage: true
+## JoinTitle...参加時にプレイヤーにタイトルを表示
+EnableJoinTitle: true
+## JoinSound...参加時にレベルアップした時の音を鳴らす
+EnableJoinSound: true
+## CustomJoinMessage...プレイヤーの参加メッセージをアレンジする
+EnableCustomJoinMessage: true
+## CustomQuitMessage...プレイヤーが退室した時のメッセージをアレンジする
+EnableCustomQuitMessage: true
+
+## 各種機能の詳細設定
+## JoinMessage...送信するメッセージの内容を設定
+JoinMessage:
+  - §7======= Welcome! =======
+  - §7CoSSeへようこそ！
+  - §7ワールド移動などはしふぉんでどうぞ
+  - §7https://info.comorevi.net
+  - §7======================
+## JoinTitle
+JoinTitle: §cC§fo§cSS§fe - §a生活§f鯖
+JoinSubTitle: §7for MinecraftBE 1.14.x
+## CustomJoinMessage
+CustomJoinMessage: "{username}が参加しました！待ってました！！( ͡° ͜ʖ ͡°)"
+## CustomQuitMessage
+CustomQuitMessage: "{username}が退出しました。良い１日を！！"

@@ -1,0 +1,7 @@
+name: JoinQuitMessagePlus
+main: net.comorevi.cosse.jqmessageplus.Main
+load: POSTWORLD
+version: 1.0.0
+author: popkechupki
+api: ["1.0.0"]
+description: プラグイン名の通りの機能が入ってます。
