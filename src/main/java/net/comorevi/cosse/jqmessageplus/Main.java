@@ -4,10 +4,11 @@ import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerJoinEvent;
 import cn.nukkit.event.player.PlayerQuitEvent;
+import cn.nukkit.event.server.DataPacketReceiveEvent;
 import cn.nukkit.level.Sound;
+import cn.nukkit.network.protocol.SetLocalPlayerAsInitializedPacket;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
-import cn.nukkit.utils.TextFormat;
 
 import java.io.File;
 
@@ -24,19 +25,18 @@ public class Main extends PluginBase implements Listener {
     @EventHandler
     public void playerJoin(PlayerJoinEvent event) {
         if (config.getBoolean("EnableCustomJoinMessage")) event.setJoinMessage(config.getString("CustomJoinMessage").replace("{username}", event.getPlayer().getName()));
+    }
 
-        getServer().getScheduler().scheduleDelayedTask(this, new Runnable() {
-            @Override
-            public void run() {
-                if (config.getBoolean("EnableJoinMessage")) {
-                    for (String str : config.getStringList("JoinMessage")) {
-                        event.getPlayer().sendMessage(str);
-                    }
-                }
-                if (config.getBoolean("EnableJoinTitle")) event.getPlayer().sendTitle(config.getString("JoinTitle"), config.getString("JoinSubTitle"), 1 * 20, 2 * 20, 1 * 20);
-                if (config.getBoolean("EnableJoinSound")) event.getPlayer().getLevel().addSound(event.getPlayer().getLocation(), Sound.RANDOM_LEVELUP);
+    @EventHandler
+    public void dataPacketReceive(DataPacketReceiveEvent event) {
+        if (!(event.getPacket() instanceof SetLocalPlayerAsInitializedPacket)) return;
+        if (config.getBoolean("EnableJoinMessage")) {
+            for (String str : config.getStringList("JoinMessage")) {
+                event.getPlayer().sendMessage(str);
             }
-        }, (event.getPlayer().getPing() - 5) * 20);
+        }
+        if (config.getBoolean("EnableJoinTitle")) event.getPlayer().sendTitle(config.getString("JoinTitle"), config.getString("JoinSubTitle"), 2 * 20, 2 * 20, 20);
+        if (config.getBoolean("EnableJoinSound")) event.getPlayer().getLevel().addSound(event.getPlayer().getLocation(), Sound.RANDOM_LEVELUP);
     }
 
     @EventHandler

@@ -14,7 +14,6 @@ EnableCustomQuitMessage: true
 ## JoinMessage...送信するメッセージの内容を設定
 JoinMessage:
   - §7======= Welcome! =======
-  - §7CoSSeへようこそ！
   - §7ワールド移動などはしふぉんでどうぞ
   - §7https://info.comorevi.net
   - §7======================
